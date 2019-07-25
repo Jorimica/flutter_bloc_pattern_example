@@ -35,7 +35,6 @@ class MovieList extends StatelessWidget {
           crossAxisCount: 2,
           childAspectRatio: MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height)
         ),
-        shrinkWrap: false,
         itemBuilder: (BuildContext context, int index) {
           return MovieItem(
             snapshot.data.results[index].posterPath,

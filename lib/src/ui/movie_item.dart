@@ -19,9 +19,10 @@ class MovieItem extends StatelessWidget {
             fit: BoxFit.fill,
           ),
           Padding(
-              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
               child: Text(
                 _title,
+                overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.amber
@@ -29,7 +30,7 @@ class MovieItem extends StatelessWidget {
               )
           ),
           Padding(
-              padding: EdgeInsets.fromLTRB(0, 5, 0, 10),
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
               child: Text(
                 'Release date: $_releaseDate',
                 textAlign: TextAlign.center,
