@@ -8,7 +8,6 @@ import 'package:flutter/services.dart' show rootBundle;
 class MovieApiProvider {
   Client client = Client();
   final _endpoint = 'http://api.themoviedb.org/3/movie/popular?api_key=';
-  //final _apiKey = '7e6a9a3be4a61e50096bada46314ae9b';
   final _error = 'Failed to load post';
 
   Future<ItemModel> fetchMovieList() async {
