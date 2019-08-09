@@ -9,11 +9,12 @@ class MovieApiProvider {
   Client client = Client();
   final _endpoint = 'http://api.themoviedb.org/3/movie/popular?api_key=';
   final _error = 'Failed to load post';
+  final _page = '&page=1';
 
   Future<ItemModel> fetchMovieList() async {
     String secretsJson = await rootBundle.loadString('assets/secrets.json');
     String apiKey = SecretModel.fromJson(json.decode(secretsJson)).apiKey;
-    final response = await client.get('$_endpoint$apiKey');
+    final response = await client.get('$_endpoint$apiKey$_page');
     print(response.body.toString());
     if (response.statusCode == 200) {
       // If the call to the server was successful, parse the JSON

@@ -37,9 +37,7 @@ class MovieList extends StatelessWidget {
         ),
         itemBuilder: (BuildContext context, int index) {
           return MovieItem(
-            snapshot.data.results[index].posterPath,
-            snapshot.data.results[index].title,
-            snapshot.data.results[index].releaseDate
+            snapshot.data.results[index]
           );
         }
       )
