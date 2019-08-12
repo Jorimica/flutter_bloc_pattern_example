@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_pattern_example/src/models/item_model.dart';
+import 'package:flutter_bloc_pattern_example/src/models/movies_response.dart';
 
 class MovieDetail extends StatelessWidget {
   final String _appBarTitle = "Movie Details";
@@ -11,11 +11,11 @@ class MovieDetail extends StatelessWidget {
   final String _releaseDateLabel = 'Release date: ';
   final String _overviewLabel = 'Overview: ';
 
-  MovieDetail(Result result) {
-    _posterPath = result.posterPath;
-    _title = result.title;
-    _releaseDate = result.releaseDate;
-    _overview = result.overview;
+  MovieDetail(Movie movie) {
+    _posterPath = movie.posterPath;
+    _title = movie.title;
+    _releaseDate = movie.releaseDate;
+    _overview = movie.overview;
   }
 
   @override

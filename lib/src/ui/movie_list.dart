@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/item_model.dart';
+import '../models/movies_response.dart';
 import '../blocs/movies_bloc.dart';
 import 'movie_item.dart';
 
@@ -15,7 +15,7 @@ class MovieList extends StatelessWidget {
       ),
       body: StreamBuilder(
         stream: bloc.allMovies,
-        builder: (context, AsyncSnapshot<ItemModel> snapshot) {
+        builder: (context, AsyncSnapshot<MoviesResponse> snapshot) {
           if (snapshot.hasData) {
             return buildList(snapshot, context);
           } else if (snapshot.hasError) {
@@ -27,7 +27,7 @@ class MovieList extends StatelessWidget {
     );
   }
 
-  Widget buildList(AsyncSnapshot<ItemModel> snapshot, BuildContext context) {
+  Widget buildList(AsyncSnapshot<MoviesResponse> snapshot, BuildContext context) {
     return Container(
       child: GridView.builder(
         itemCount: snapshot.data.results.length,

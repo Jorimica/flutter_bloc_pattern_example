@@ -1,20 +1,20 @@
-class ItemModel {
+class MoviesResponse {
   int _page;
   int _totalResults;
   int _totalPages;
-  List<Result> _results = [];
+  List<Movie> _results = [];
 
-  ItemModel.fromJson(Map<String, dynamic> parsedJson) {
+  MoviesResponse.fromJson(Map<String, dynamic> parsedJson) {
     print(parsedJson['results'].length);
     _page = parsedJson['page'];
     _totalResults = parsedJson['total_results'];
     _totalPages = parsedJson['total_pages'];
     for (int i = 0; i < parsedJson['results'].length; i++) {
-      _results.add(Result(parsedJson['results'][i]));
+      _results.add(Movie(parsedJson['results'][i]));
     }
   }
 
-  List<Result> get results => _results;
+  List<Movie> get results => _results;
 
   int get totalPages => _totalPages;
 
@@ -23,7 +23,7 @@ class ItemModel {
   int get page => _page;
 }
 
-class Result {
+class Movie {
   int _voteCount;
   int _id;
   bool _video;
@@ -39,7 +39,7 @@ class Result {
   String _overview;
   String _releaseDate;
 
-  Result(result) {
+  Movie(result) {
     _voteCount = result['vote_count'];
     _id = result['id'];
     _video = result['video'];
