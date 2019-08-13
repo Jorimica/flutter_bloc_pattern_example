@@ -3,14 +3,23 @@ import 'package:flutter_bloc_pattern_example/src/models/movies_response.dart';
 
 import 'movie_detail.dart';
 
-class MovieItem extends StatelessWidget {
+class MovieItem extends StatefulWidget {
+  final Movie movie;
+
+  MovieItem(this.movie);
+
+  @override
+  State<StatefulWidget> createState() => _MovieItemState(movie);
+}
+
+class _MovieItemState extends State<MovieItem> {
   final String _movieImageUrl = 'https://image.tmdb.org/t/p/w185';
   String _posterPath;
   String _title;
   String _releaseDate;
   Movie _result;
 
-  MovieItem(Movie movie) {
+  _MovieItemState(Movie movie) {
     _posterPath = movie.posterPath;
     _title = movie.title;
     _releaseDate = movie.releaseDate;

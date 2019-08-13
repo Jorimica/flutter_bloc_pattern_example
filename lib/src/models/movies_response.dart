@@ -29,7 +29,7 @@ class Movie {
   bool _video;
   var _voteAverage;
   String _title;
-  double _popularity;
+  var _popularity;
   String _posterPath;
   String _originalLanguage;
   String _originalTitle;

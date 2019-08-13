@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_pattern_example/src/models/movies_response.dart';
 
-class MovieDetail extends StatelessWidget {
+class MovieDetail extends StatefulWidget {
+  final Movie movie;
+
+  MovieDetail(this.movie);
+
+  @override
+  State<StatefulWidget> createState() => _MovieDetailState(movie);
+}
+
+class _MovieDetailState extends State<MovieDetail> {
   final String _appBarTitle = "Movie Details";
   final String _movieImageUrl = 'https://image.tmdb.org/t/p/w185';
   String _posterPath;
@@ -11,7 +20,7 @@ class MovieDetail extends StatelessWidget {
   final String _releaseDateLabel = 'Release date: ';
   final String _overviewLabel = 'Overview: ';
 
-  MovieDetail(Movie movie) {
+  _MovieDetailState(Movie movie) {
     _posterPath = movie.posterPath;
     _title = movie.title;
     _releaseDate = movie.releaseDate;

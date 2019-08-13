@@ -9,8 +9,8 @@ class MoviesBloc {
   Observable<MoviesResponse> get allMovies => _moviesFetcher.stream;
 
   fetchAllMovies() async {
-    MoviesResponse itemModel = await _repository.fetchAllMovies();
-    _moviesFetcher.sink.add(itemModel);
+    MoviesResponse moviesResponse = await _repository.fetchAllMovies();
+    _moviesFetcher.sink.add(moviesResponse);
   }
 
   dispose() {
