@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_pattern_example/src/models/movies_response.dart';
+import 'package:flutter_bloc_pattern_example/src/ui/size_config.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 import 'movie_detail.dart';
 
@@ -28,6 +30,7 @@ class _MovieItemState extends State<MovieItem> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return new GestureDetector(
       onTap: () {
         Navigator.push(
@@ -39,12 +42,14 @@ class _MovieItemState extends State<MovieItem> {
         elevation: 4,
         child: Column(
           children: <Widget>[
-            Image.network(
-              '$_movieImageUrl$_posterPath',
-              fit: BoxFit.fill,
+            FadeInImage.memoryNetwork(
+              placeholder: kTransparentImage,
+              image: '$_movieImageUrl$_posterPath',
+              height: SizeConfig.aspectRatio*SizeConfig.screenHeight - SizeConfig.aspectRatio*SizeConfig.aspectRatio*SizeConfig.blockSizeHorizontal*90,
+              alignment: Alignment.topCenter,
             ),
             Padding(
-                padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                padding: EdgeInsets.fromLTRB(0, SizeConfig.blockSizeVertical, 0, 0),
                 child: Text(
                   _title,
                   overflow: TextOverflow.ellipsis,
@@ -56,7 +61,7 @@ class _MovieItemState extends State<MovieItem> {
                 )
             ),
             Padding(
-                padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                padding: EdgeInsets.fromLTRB(0, SizeConfig.blockSizeVertical, 0, SizeConfig.blockSizeVertical),
                 child: Text(
                   'Release date: $_releaseDate',
                   textAlign: TextAlign.center,
