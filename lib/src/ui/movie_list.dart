@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_pattern_example/src/ui/size_config.dart';
 import '../models/movies_response.dart';
 import '../blocs/movies_bloc.dart';
 import 'movie_item.dart';
@@ -39,6 +40,7 @@ class _MovieListState extends State<MovieList> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(_title),

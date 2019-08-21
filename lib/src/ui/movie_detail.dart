@@ -52,28 +52,23 @@ class _MovieDetailState extends State<MovieDetail> {
                 width: double.infinity,
               ),
             ),
-            Padding(
-                padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                child: Text(
-                  _title,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      color: Colors.amber,
-                      fontSize: 14
-                  ),
-                )
+            Center(
+              child: Padding(
+                  padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                  child: Text(
+                      _title,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.title
+                  )
+              ),
             ),
             Padding(
                 padding: EdgeInsets.fromLTRB(5, 10, 5, 0),
                 child: Text(
                   '$_overviewLabel$_overview',
                   textAlign: TextAlign.left,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300
-                  ),
+                  style: Theme.of(context).textTheme.body1
                 )
             ),
             Padding(
@@ -81,11 +76,7 @@ class _MovieDetailState extends State<MovieDetail> {
                 child: Text(
                   '$_releaseDateLabel$_releaseDate',
                   textAlign: TextAlign.left,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300
-                  ),
+                  style: Theme.of(context).textTheme.body2
                 )
             ),
           ],

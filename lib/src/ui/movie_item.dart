@@ -30,7 +30,6 @@ class _MovieItemState extends State<MovieItem> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
     return new GestureDetector(
       onTap: () {
         Navigator.push(
@@ -54,10 +53,7 @@ class _MovieItemState extends State<MovieItem> {
                   _title,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.amber,
-                    fontSize: 14
-                  ),
+                  style: Theme.of(context).textTheme.subtitle
                 )
             ),
             Padding(
@@ -65,10 +61,7 @@ class _MovieItemState extends State<MovieItem> {
                 child: Text(
                   'Release date: $_releaseDate',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14
-                  ),
+                  style: Theme.of(context).textTheme.body1
                 )
             )
           ],
