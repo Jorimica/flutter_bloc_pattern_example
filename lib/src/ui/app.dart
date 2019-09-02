@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'movie_list.dart';
 
+/* A stateless widget never changes. Icon, IconButton, and Text are examples
+of stateless widgets.*/
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
