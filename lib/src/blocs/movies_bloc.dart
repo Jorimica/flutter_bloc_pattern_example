@@ -1,3 +1,5 @@
+import 'package:rxdart/subjects.dart';
+
 import '../resources/movies_repository.dart';
 import 'package:rxdart/rxdart.dart';
 import '../models/movies_response.dart';
@@ -9,7 +11,7 @@ class MoviesBloc {
   final _repository = MoviesRepository();
   final _moviesFetcher = PublishSubject<MoviesResponse>();
 
-  Observable<MoviesResponse> get allMovies => _moviesFetcher.stream;
+  Stream<MoviesResponse> get allMovies => _moviesFetcher.stream;
 
   fetchAllMovies() async {
     MoviesResponse moviesResponse = await _repository.fetchAllMovies();

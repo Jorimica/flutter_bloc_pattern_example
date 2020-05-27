@@ -5,7 +5,6 @@ class MoviesResponse {
   List<Movie> _results = [];
 
   MoviesResponse.fromJson(Map<String, dynamic> parsedJson) {
-    print(parsedJson['results'].length);
     _page = parsedJson['page'];
     _totalResults = parsedJson['total_results'];
     _totalPages = parsedJson['total_pages'];

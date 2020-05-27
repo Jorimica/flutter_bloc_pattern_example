@@ -20,7 +20,6 @@ class MoviesApiProvider {
     String secretsJson = await rootBundle.loadString('assets/secrets.json');
     String apiKey = SecretModel.fromJson(json.decode(secretsJson)).apiKey;
     final response = await client.get('$_endpoint$apiKey$_pageParam$_pageValue');
-    print(response.body.toString());
     if (response.statusCode == 200) {
       MoviesResponse moviesResponse = MoviesResponse.fromJson(json.decode(response.body));
       _pageValue = moviesResponse.page + 1;
